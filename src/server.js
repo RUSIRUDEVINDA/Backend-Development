@@ -2,14 +2,18 @@ import "dotenv/config"; // Must be first - loads env vars before any other impor
 import express from "express";
 import { connectDB, disconnectDB } from "./config/db.js";
 
-
 //import Routes
 import movieRoutes from "./routes/movieRoutes.js";
+import authRoutes from "./routes/authRoutes.js";
 connectDB();
 const app = express();
 
+//body parser middleware
+app.use(express.json());
+
 //Api Routes
 app.use("/movies", movieRoutes); 
+app.use("/auth", authRoutes); 
 
 const PORT = 5001;
 const server = app.listen(PORT,() =>{

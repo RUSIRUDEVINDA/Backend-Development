@@ -19,18 +19,25 @@ model User {
   password String
 
   createdAt DateTime @default(now())
+
+  // Relations
+  movies         Movie[]         @relation("MovieCreator")
+  watchlistItems WatchlistItem[]
 }
 
 model Movie {
   id          String   @id @default(uuid())
   title       String
-  overview    String? //? means optional
+  overview    String?
   releaseYear Int
   genres      String[] @default([])
   runtime     Int?
   posterUrl   String?
   createdBy   String
   createdAt   DateTime @default(now())
+
+  creator        User            @relation("MovieCreator", fields: [createdBy], references: [id], onDelete: Cascade)
+  watchlistItems WatchlistItem[]
 }
 
 model WatchlistItem {
@@ -42,6 +49,12 @@ model WatchlistItem {
   notes     String?
   createdAt DateTime        @default(now())
   updatedAt DateTime        @default(now())
+
+  // Relations
+  user  User  @relation(fields: [userId], references: [id], onDelete: Cascade)
+  movie Movie @relation(fields: [movieId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, movieId])
 }
 
 enum WatchlistStatus {
@@ -50,3 +63,5 @@ enum WatchlistStatus {
   COMPLETED
   DROPPED
 }
+
+// USER -> MOVIE -> WATCHLIST
