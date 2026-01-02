@@ -28,7 +28,7 @@ const register = async (req, res) => {
     const token = generateToken(user.id,res);
 
     res.status(201)
-    .json({status:"login successfull",
+    .json({status:"register successfull",
         data:{
             user:{
                 id:user.id,
@@ -64,7 +64,7 @@ const login = async (req,res)=>{
     //generate jwt token
     const token = generateToken(user.id,res);
      res.status(201)
-    .json({status:"successfull",
+    .json({status:"login successfully",
         data:{
             user:{
                 id:user.id,
