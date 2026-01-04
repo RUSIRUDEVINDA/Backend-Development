@@ -18,8 +18,6 @@ A robust RESTful API built with Node.js and Express for managing movies and user
 
 </div>
 
-<h3 align="center">Build a Complete Backend API with Authentication, Movie Management & Watchlist Features</h3>
-
 <div align="center">
 
 </div>
@@ -50,17 +48,13 @@ A robust RESTful API built with Node.js and Express for managing movies and user
 
 ## 🚀 Introduction
 
-In this comprehensive backend course, you'll learn how to build a **complete RESTful API** from scratch using **Node.js**, **Express.js**, and modern backend development practices. This video walks you through building:
+Build a Complete Backend API with Authentication, Movie Management & Watchlist Features
 
 1. **User Authentication System** - Secure registration, login, and JWT-based authentication
 
 2. **Movie Management API** - Full CRUD operations for movie data
 
 3. **Watchlist Feature** - Personal watchlist with status tracking and ratings
-
-Perfect for developers looking to master backend development, learn API design, implement authentication, work with databases using Prisma ORM, and build production-ready backend applications.
-
-🎥 **Watch the full tutorial**: [YouTube](https://youtu.be/RZ6Rk_g2GLY)
 
 ---
 
@@ -447,18 +441,6 @@ Your API will be live on a custom Railway subdomain!
 
 ---
 
-## 🎓 Course & Channel
-
-### Learn More with Pedro Technologies
-
-- 🌐 **Course Website**: [www.webdevultra.com](https://www.webdevultra.com)
-
-- 📺 **YouTube Channel**: [@pedrotechnologies](https://www.youtube.com/@pedrotechnologies)
-
-Follow along for more backend tutorials, full-stack development, and practical coding projects!
-
----
-
 ## 🔗 Useful Links
 
 - [Node.js Documentation](https://nodejs.org/docs)
@@ -474,11 +456,5 @@ Follow along for more backend tutorials, full-stack development, and practical c
 - [Zod Documentation](https://zod.dev/)
 
 - [Railway Deployment Guide](https://docs.railway.app/)
-
----
-
-## 📝 License
-
-This project is open source and available under the [MIT License](LICENSE).
 
 ---
