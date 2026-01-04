@@ -1,27 +1,40 @@
-import "dotenv/config"; // Must be first - loads env vars before any other imports
 import express from "express";
+import { config } from "dotenv";
 import { connectDB, disconnectDB } from "./config/db.js";
 
-//import Routes
+// Import Routes
 import movieRoutes from "./routes/movieRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
 import watchlistRoutes from "./routes/watchlistRoutes.js";
-connectDB();
+
+config();
 const app = express();
 
-//body parser middleware
+// Body parsing middlwares
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-//Api Routes
-app.use("/movies", movieRoutes); 
-app.use("/auth", authRoutes); 
+// API Routes
+app.use("/movies", movieRoutes);
+app.use("/auth", authRoutes);
 app.use("/watchlist", watchlistRoutes);
 
-const PORT = 5001;
-const server = app.listen(PORT,() =>{
-    console.log(`Server is running on port ${PORT}`);
-});
+let server;
 
+const startServer = async () => {
+  try {
+    await connectDB();
+    const PORT = process.env.PORT || 5001;
+    server = app.listen(PORT, "0.0.0.0", () => {
+      console.log(`Server running on PORT ${PORT}`);
+    });
+  } catch (error) {
+    console.error("Failed to connect to database:", error);
+    process.exit(1);
+  }
+};
+
+startServer();
 
 // Handle unhandled promise rejections (e.g., database connection errors)
 process.on("unhandledRejection", (err) => {
@@ -48,12 +61,9 @@ process.on("SIGTERM", async () => {
   });
 });
 
-
-
-
 //http:localhost:5001/movies/
 
-//GET,POST,PUT,DELETE 
+//GET,POST,PUT,DELETE
 //patch for partial update for a example updating only the name of the user instead of whole user object
 
 //AUTH - signup, signin
