@@ -456,5 +456,3 @@ Your API will be live on a custom Railway subdomain!
 - [Zod Documentation](https://zod.dev/)
 
 - [Railway Deployment Guide](https://docs.railway.app/)
-
----
